@@ -1,0 +1,189 @@
+/*=============RESET============================*/
+/*RESET para retira espaços padrões do navegador entre os textos. * selecionara todo conteudo da pagina e serão retirados os espaços pelo comando margin: 0. padding diz respeito ao preenchimento. box-sizing*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  /*Retirando todo sublinhando de links em "a"*/
+  text-decoration: none;
+}
+
+img {
+  /*Adaptar a imagem ao tamanhod a tela */
+  width: 100%;
+  height: auto;
+}
+
+/* ========== Variáveis===========================*/
+/*As variáveis podem ser acessadas por qualquer seletor (os seletores são como body ou .logo sendo o primeiro um seletor tag e o segundo um seletor de classe */
+:root {
+  --header-height: 4.5rem;
+  /*===============Colors*====================*/
+  --hue: 159;
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+}
+
+/* ========== BASE ==============================*/
+/*Aqui está sendo configurada as fontes do corpo e dos títulos h1, carregando o valor (conseguido através do google fonts) a proporção e o nome da fonte*/
+body {
+  font: 400 1rem 'DM Sans';
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font: 700 1.875rem 'Poppins';
+  color: var(--title-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+.button {
+  /*Setando o botão de agendar. background coloca a cor do botão, color, do texto. height diz a altura do botão e display o configura para um tamanho adequado (pode receber block, inline, flex ou uma união de termos);  padding irá centralizar o texto dentro do botão, 0 para cima e baixo, 2 para laterais e o abaulamento do botão. font irá setar a fonte do texto e transition se liga com .button:hover, faz com que a cor setado em hover demore ate x segundos para ascender numa transição de intensidade (suave)*/
+  background-color: var(--base-color);
+  color: var(--text-color-light);
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1rem 'DM Sans';
+  transition: background 0.7s;
+}
+
+.button:hover {
+  /*Qando houver algo em cima do botão algo acontece, ensse caso vamos mudar a cor*/
+  background: var(--base-color-alt);
+}
+
+.divider-1 {
+  /*Criando um gradiente de cor para a divisão da página, linear-gradiente recebe 3 parametros, graus (num circulo de cor, quantos graus ele avança) e a cor 0% e a cor 100%. A variável hue pode ser modificada, por isso se for mudada no inicio tudo que depende dela também sofre mudança adequando todas as cores do projeto*/
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1) 0%,
+    hsla(var(--hue), 65%, 88%, 0.34) 100%
+  );
+}
+
+/* ========== LAYOUT ==============================*/
+/* Chamar header aqui precisa do # para especificar que é o ID definido lá no html */
+
+#header {
+  /* Pixel é uma unidade de medida fixa, por isso preciso de do rem (root element), que irá escalonar o tamanho da tela baseado do device. Isso é o responsivo*/
+  color: rgb(81, 131, 84);
+  /*Aqui estamos declarando a cor da caixa do cabeçalho, cinza claro, além disso, display: flex faz o contepudo do header ser maleavel para qualquer tamanho de tela*/
+  border-bottom: 1px solid rgba(31, 11, 11, 0.863);
+  margin-bottom: 2rem;
+  display: flex;
+  /*Agora vamos feixar o cabeçalho fixo, de forma que rolando a página o cabeçalho continue no topo e passe por cima do conteúdo. pra isso, garantimos que seu tamanho continue 100%, fixamos no topo como position: fixed; seguramos ele na posição 0,0 da pagina (superior esquerda); colocamos ele na frente de tudo com z-index: 100 e garantimos que não perca suas cores setando seu background novamente.*/
+
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: var(--body-color);
+}
+
+nav {
+  /*display vai fazer com QUE OS DOIS BOX FILHOS DE NAV FIQUEM AO LADO UM DO OUTRO, tentaremos por cada um em uma extremidade do container. justify-content irá justificar os itens e o valor space-between faz com que entre eles haja espaçamento*/
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  /*Setando o tamanho do titulo do cabeçalho e customizando*/
+  font: 700 1.31rem 'Poppins';
+  color: var(--title-color);
+}
+
+.logo span {
+  /*Aqui estamos indo na logo e procurando a tag span para editar apenas ela, essa tag separou a palavra beautysalon*/
+  color: var(--base-color);
+}
+
+.container {
+  /*Aplicando para todos os containers tamanho e margens, no caso 0 para margens cima e baixo, e automatico para direita e esquerda, posso ser mais especifico quanto as margens designando cada uma*/
+  width: 100%;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.grid {
+  /*Habilita fncionalidades novas do CSS*. gap faz com que tudo que tiver em grid recebe um espaçamento determinado */
+  display: grid;
+  gap: 2rem;
+}
+
+.section {
+  /*Aqui estamos configurando as seções, criando espaçamentos superiro e inferior de 80 pixels e laterais de zero*/
+  padding: 5rem 0;
+}
+
+main {
+  margin-top: var(--header-height);
+}
+/*==========HOME======================================*/
+#home {
+  /* Aqui estou evitando que a imagem fique vazada*/
+  overflow: hidden;
+}
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  /*Aqui estamos criando a imagem fantasma (SUDO ELEMENT) por trás de nossa foto, setamos seu tamanho, a sua cor (background), top e left indicam a posição da imagem no body levando em conta a posição relativa da imagem principal, Z index 0 poem a imagem atrás da minha, 1 poem a frente*/
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -16.8%;
+  left: 16.7%;
+  z-index: 0;
+}
+
+#home .image img {
+  /*Movendo a imagem, position: relative habilita funções como mover para direita ou esquerda*/
+  position: relative;
+  right: 2.93rem;
+}
+
+/*as repetições de #home abaixo voltadas para a imagem e seu SUDO são para abaular as pontas das imagens. Posso modificar ambas as chamadas separando elas por virgula*/
+
+#home .image img,
+#home .image::before {
+  border-radius: 0.25rem;
+}
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#home. text h1 {
+  margin-bottom: 1rem;
+}
+
+#home .text p {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
