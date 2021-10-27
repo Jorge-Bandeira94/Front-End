@@ -1,5 +1,5 @@
 /*=============RESET============================*/
-/*RESET para retira espaços padrões do navegador entre os textos. * selecionara todo conteudo da pagina e serão retirados os espaços pelo comando margin: 0. padding diz respeito ao preenchimento. box-sizing*/
+/*RESET para retira espaços padrões do navegador entre os textos. * selecionará todo conteÚdo da pagina e serão retirados os espaços pelo comando margin: 0. Padding diz respeito ao preenchimento.*/
 * {
   margin: 0;
   padding: 0;
@@ -17,8 +17,8 @@ img {
   height: auto;
 }
 
-/* ========== Variáveis===========================*/
-/*As variáveis podem ser acessadas por qualquer seletor (os seletores são como body ou .logo sendo o primeiro um seletor tag e o segundo um seletor de classe */
+/* ==================================================================== Variáveis=====================================================================================*/
+/*As variáveis podem ser acessadas por qualquer seletor (os seletores básicos podem ser por tag, por classe, por id, universal ou por atributo*/
 :root {
   --header-height: 4.5rem;
   /*===============Colors*====================*/
@@ -32,8 +32,8 @@ img {
   --body-color: hsl(0 0% 98%);
 }
 
-/* ========== BASE ==============================*/
-/*Aqui está sendo configurada as fontes do corpo e dos títulos h1, carregando o valor (conseguido através do google fonts) a proporção e o nome da fonte*/
+/* ==================================================================== BASE ========================================================================================*/
+/*Aqui está sendo configurada as fontes do corpo e dos títulos (h1), carregando o valor (conseguido através do google fonts) a proporção e o nome da fonte*/
 body {
   font: 400 1rem 'DM Sans';
   color: var(--text-color);
@@ -75,7 +75,7 @@ h1 {
   );
 }
 
-/* ========== LAYOUT ==============================*/
+/* ==================================================================== LAYOUT ========================================================================================*/
 /* Chamar header aqui precisa do # para especificar que é o ID definido lá no html */
 
 #header {
@@ -135,7 +135,7 @@ nav {
 main {
   margin-top: var(--header-height);
 }
-/*==========HOME======================================*/
+/*====================================================================HOME================================================================================================*/
 #home {
   /* Aqui estou evitando que a imagem fique vazada*/
   overflow: hidden;
