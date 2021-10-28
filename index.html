@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
+    <!--Icones-->
+    <link rel="stylesheet" href="assets/style.css">
+
     <!-- Styles, aqui entra o CSS, o atributo rel (relacionamento) com a referência (href) é de um stylesheet. Ou seja, o link é de um stylesheet. href referencia um style.css na minha pasta local que deve ser criado (ali no canto esquerdo)-->
     <link rel="stylesheet" href="style.css" />
 
@@ -21,10 +24,24 @@
   <body>
     <header id="header">
       <!-- Titulo do cabeçalho. Acima o ID header faz com que no CSS eu possa chamar este elemento pelo id, caso não especifique o id, ao mecher no CSS, todo header no html será modificado -->
+      <!-- a classe show é integrada ao java script, ela irá fazer o menu aparecer quando clicado-->
       <nav class="container">
         <!-- nav é uma tag para navegação, indica que os elementos aqui dentro receberam cliques para navegar no site. A class indica que esta TAG possui a classe determinada, no CSS posso chamar tudo que for de uma classe determinada. É possível ver que a tag <span> esta aninhada dentro da tag a, ela separa a palavra beautysalon para podermos modificar apenas parte da palavra se desejarmos-->
         <a class="logo" ref="#">Beauty<span>salon</span>.</a>
-        <div class="menu">...</div>
+        <!-- Estou criando uma nova TAG dentro da tag div abaixo para dar itens ao menu, dessa forma, li são tags para as categorias. cada li recebera a tag "a"que é a tag que usamos para click. Para escrever de forma facilitada, em vez de digitar cada li podemos usar li*5>a que irá criar 5 li com a. também poderia ser ul>li*5>a caso não tivesse já escrito a tag ul. Além disso, caso eu precise escrever varios codigos iguais posso segurar CTRL e clicar em cada linha que recberá esse código, ao escrever, será escrito em todas as linhas-->
+        <div class="menu">
+          <!-- Menu -->
+          <!-- a classe grid, definida no css anteriormente, nos da espaçamentos-->
+          <ul class="grid">
+            <li><a class="title" href="#home">Início</a></li>
+            <li><a class="title" href="#about">Sobre</a></li>
+            <li><a class="title" href="#services">Serviços</a></li>
+            <li><a class="title" href="#testimonials">Depoimentos</a></li>
+            <li><a class="title" href="#contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="toggle icon-menu"></div>
+        <div class="toggle icon-close"></div>
       </nav>
     </header>
     <main>
@@ -41,7 +58,7 @@
           <!--Estou colocando toda essa parte dentro de uma nova tag para no CSS ter como modificar a posição só deste quadro, pois a imagem precisa ficar posicionada de forma diferente do texto-->
           <div class="text">
             <!-- Subtítulo-->
-            <h1>Saúde natural para os seus cabelos</h1>
+            <h2 class="title">Saúde natural para os seus cabelos</h2>
             <!--Descriçao-->
             <p>
               Um salão exclusivo em Recife, especializado em tratamentos
@@ -53,7 +70,57 @@
         </div>
       </section>
       <div class="divider-1"></div>
+      <!-- Criando as seções que o menu irá jogar caso clicados-->
+      <section class="section" id="about">
+        <div class="container grid">
+          <div class="image">
+            <img src="https://media.istockphoto.com/photos/interior-of-modern-hair-salon-picture-id1224292356?k=20&m=1224292356&s=612x612&w=0&h=dJ7ccXrr_2DEqLHr8SbuQou4cizOgnVETn69AkNdPVg=" alt="Imagem do salão">
+          </div>
+          <div class="text">
+            <h2 class="tittle">Sobre nós</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum consequatur fugit voluptate atque officiis libero dicta amet, modi a, nobis voluptates est, velit maiores. Officiis nihil a odio iure earum!
+            </p>
+            <!--Br é uma quebra de linha-->
+            <br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id accusantium fuga quae fugit ad obcaecati cumque aspernatur inventore quod eum, ipsum modi ipsam esse distinctio molestias ullam sed. Voluptate, cum.</p>
+            <br>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet dicta dolorum blanditiis sint possimus laborum, culpa facilis saepe, sed totam voluptates esse vero placeat praesentium repellat ratione at accusantium odio.</p>
+          </div>
+      </section>
+      <div class="divider-2"></div>
+      <section class="section" id="services">
+        <div class="container grid">
+          <header><h2 class="title">Serviços</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum tempora debitis ducimus reprehenderit dolore pariatur asperiores expedita. Corporis reiciendis ad atque id, saepe aut officia blanditiis neque, repudiandae laudantium officiis?</p></header>
+          <div class="cards grid">
+            <div class="card">
+              <i class="icon-woman-hair"></i>
+              <h3 class="title">Terapia capilar</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum delectus, corrupti sunt repellendus doloremque provident suscipit pariatur exercitationem iure ea saepe. Harum magni natus minima debitis assumenda sed ad numquam.</p>
+            </div>
+            <div class="card">
+              <i class="icon-trim"></i>
+              <h3 class="title">Cortes</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis totam odit aut distinctio animi possimus asperiores, perferendis quasi, similique cum eveniet repudiandae dolores neque voluptate sit tempore magni. Tempore, eos?</p>
+            </div>
+            <div class="card">
+              <i class="icon-cosmetic"></i>
+              <h3 class="title">Tratamentos</h3>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero cupiditate incidunt facere. Inventore officiis, commodi laboriosam ipsa omnis eius deserunt quasi rem adipisci? Nemo tempore optio quaerat modi a rem.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="testimonials">
+        <div class="container grid">Depoimentos</div>
+      </section>
+      <section class="section" id="contact">
+        <div class="container grid">Contato</div>
+      </section>
+      </section>
     </main>
     <footer></footer>
+    <!-- Aqui fazemos a ligação com o Javascript, antes de fechar o corpo. O js irá nos dar as funcionalidades de click da pagina-->
+    <script src="main.js"></script>
   </body>
 </html>
