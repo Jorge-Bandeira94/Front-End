@@ -391,3 +391,96 @@ nav.show div.icon-close {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
 }
+
+/*=================================Testimonials=============================*/
+
+#testimonials {
+  background: white;
+}
+
+#testimonials .container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#testimonials header {
+  margin-bottom: 0;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+#testimonials blockquote {
+  /*Criando o quadro dos cartões de depoimento*/
+  padding: 1rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+}
+
+#testimonials blockquote p {
+  /*Configurando a posição do texto no bloco*/
+  position: relative;
+  text-indent: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+}
+
+#testimonials blockquote p span {
+  /*Modificando a aspas que está no span*/
+  font: 700 2.6rem serif;
+  /*Quando a posição é absoluta, ela sobreescreve as camadas abaixo criando uma nova para si*/
+  position: absolute;
+  top: -0.7rem;
+  left: -1.8rem;
+  color: var(--base-color);
+}
+
+#testimonials cite {
+  /*Posicionamento da imagem e texto*/
+  display: block;
+  align-items: center;
+  font-style: normal;
+}
+
+#testimonials cite img {
+  /*Redimensionando a imagem que estava grande*/
+  height: 2rem;
+  width: 2rem;
+  object-fit: cover;
+  /*Criando uma mascara na imagem para deixa-la circular*/
+  clip-path: circle();
+  margin-right: 0.5rem;
+}
+
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
+}
+
+/*=================================Contact=============================*/
+
+#contact .grid {
+  gap: 4rem;
+}
+
+#contact .text p {
+  margin-bottom: 2rem;
+}
+
+#contact .button i,
+#contact ul li i {
+  font-size: 1.5rem;
+  margin-right: 0.62rem;
+}
+
+#contact ul.grid {
+  gap: 2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+#contact {
+  background-color: rgba(0, 0, 0, 0.08);
+}

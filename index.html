@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!--Swiper (carrosel dos depoimentos)-->
+    <link  rel="stylesheet"  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 
     <!--Icones-->
     <link rel="stylesheet" href="assets/style.css">
@@ -111,16 +113,79 @@
           </div>
         </div>
       </section>
+      <div class="divider-1"></div>
+      <!-- estruturando agora a seção depoimentos. Podemos criar em apena uma linha de código tudo que aparecer do inicio dessa section ate seu fim com: section.section#testimonials>.container.grid>header>h2.title-->
       <section class="section" id="testimonials">
-        <div class="container grid">Depoimentos</div>
+        <!--ATENÇÃO, foi retirado da classe container a classe grid, pois o swiper tem suas proprias configs e usar grid englobando ele prejudica o funcionamento do site-->
+        <div class="container">
+          <header>
+            <h2 class="title">Depoimentos</h2>
+          </header>
+          <!--Configurando os cartões de testemunhas-->
+          <div class="testimonials swiper-container">
+            <div class="swiper-wrapper">
+            <div class="testimonials swiper-slide"><blockquote>
+              <p>
+                <span>
+                  &ldquo;
+                </span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione ex obcaecati consequuntur dicta minima non voluptatum necessitatibus facere esse modi provident optio nemo, ipsam reiciendis corporis officiis? Suscipit, eligendi iure.
+              </p>
+              <cite>
+                <img src="https://randomuser.me/api/portraits/women/94.jpg" alt="">Vanessa Souza
+              </cite>
+            </blockquote>
+            </div>
+            <div class="testimonials swiper-slide"><blockquote>
+              <p>
+                <span>
+                  &ldquo;
+                </span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione ex obcaecati consequuntur dicta minima non voluptatum necessitatibus facere esse modi provident optio nemo, ipsam reiciendis corporis officiis? Suscipit, eligendi iure.
+              </p>
+              <cite>
+                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="">Adriana Barbosa
+              </cite>
+            </blockquote>
+            </div>
+            <div class="testimonials swiper-slide"><blockquote>
+              <p>
+                <span>
+                  &ldquo;
+                </span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione ex obcaecati consequuntur dicta minima non voluptatum necessitatibus facere esse modi provident optio nemo, ipsam reiciendis corporis officiis? Suscipit, eligendi iure.
+              </p>
+              <cite>
+                <img src="https://randomuser.me/api/portraits/women/40.jpg" alt="">Erika Santos
+              </cite>
+            </blockquote>
+            </div>
+            </div> 
+            <div class="swiper-pagination">
+            </div>
+          </div>
+        </div>
       </section>
+      <div class="divider-2"></div>
       <section class="section" id="contact">
-        <div class="container grid">Contato</div>
+        <div class="container grid">
+          <div class="text">
+            <!--Aqui estou configurando os icones com os textos de contato, no botão do whatsapp eu usei a api do whats que me manda direto pro numero digitado (começa pelo +55), e apresenta a mensagem-->
+            <h2 class="title">Entre em contato</h2>
+            <p>Entre em contato para tirar suas dúvidas e sugestões</p>
+            <!--Target="_blank" faz que ao clicar no contato do whatsapp abra uma nova aba ao inves de executar na minha-->
+            <a href="https://api.whatsapp.com/send?phone=+5581985959401&text=Bem vindo" class="button" target="_blank"><i class="icon-whatsapp"></i>Entrar em contato</a>
+          </div>
+          <div class="links"><ul class="grid">
+          <li><i class="icon-whatsapp"></i> 819 8595-9401</li>
+          <li><i class="icon-map-pin"></i> Rua São Luís, 879</li>
+          <li><i class="icon-mail"></i> iiskal@gmail.com</li>
+          </ul>
+          </div>
+        </div>
       </section>
       </section>
     </main>
     <footer></footer>
-    <!-- Aqui fazemos a ligação com o Javascript, antes de fechar o corpo. O js irá nos dar as funcionalidades de click da pagina-->
+    <!-- Aqui fazemos a ligação com o Javascript, antes de fechar o corpo. O js irá nos dar as funcionalidades de click da pagina. Antes do main.js devo usar qualquer link de modificações (como o swiper) para que seja incluido no meu js-->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
