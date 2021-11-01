@@ -48,6 +48,8 @@ body {
   color: var(--text-color);
   background: var(--body-color);
   -webkit-font-smoothing: antialiased;
+  height: 100%;
+  width: 100%;
 }
 
 h2 {
@@ -104,13 +106,38 @@ h2 {
 /* ================================== LAYOUT ==================================*/
 /* Chamar header aqui precisa do # para especificar que é o ID definido lá no html */
 
+.container {
+  /*Aplicando para todos os containers tamanho e margens, no caso 0 para margens cima e baixo, e automatico para direita e esquerda, posso ser mais especifico quanto as margens designando cada uma*/
+
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+.grid {
+  /*Habilita fncionalidades novas do CSS*. gap faz com que tudo que tiver em grid recebe um espaçamento determinado */
+  display: grid;
+  gap: 2rem;
+}
+
+.section {
+  /*Aqui estamos configurando as seções, criando espaçamentos superiro e inferior de 80 pixels e laterais de zero*/
+  padding: 5rem 0;
+}
+
+.section title {
+  margin-bottom: 1.86rem;
+}
+
+.section header {
+  margin-bottom: 4rem;
+}
+
 #header {
   /* Pixel é uma unidade de medida fixa, por isso preciso de do rem (root element), que irá escalonar o tamanho da tela baseado do device. Isso é o responsivo*/
   color: rgb(81, 131, 84);
-  /*Aqui estamos declarando a cor da caixa do cabeçalho, cinza claro, além disso, display: flex faz o contepudo do header ser maleavel para qualquer tamanho de tela*/
+  /*Aqui estamos declarando a cor da caixa do cabeçalho, cinza claro, além disso, display: flex faz o conteudo do header ser maleavel para qualquer tamanho de tela*/
   border-bottom: 1px solid rgba(31, 11, 11, 0.863);
   margin-bottom: 2rem;
-  display: flex;
+
   /*Agora vamos feixar o cabeçalho fixo, de forma que rolando a página o cabeçalho continue no topo e passe por cima do conteúdo. pra isso, garantimos que seu tamanho continue 100%, fixamos no topo como position: fixed; seguramos ele na posição 0,0 da pagina (superior esquerda); colocamos ele na frente de tudo com z-index: 100 e garantimos que não perca suas cores setando seu background novamente.*/
 
   width: 100%;
@@ -132,31 +159,6 @@ h2 {
   color: var(--base-color);
 }
 
-.container {
-  /*Aplicando para todos os containers tamanho e margens, no caso 0 para margens cima e baixo, e automatico para direita e esquerda, posso ser mais especifico quanto as margens designando cada uma*/
-  width: 100%;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-}
-
-.grid {
-  /*Habilita fncionalidades novas do CSS*. gap faz com que tudo que tiver em grid recebe um espaçamento determinado */
-  display: grid;
-  gap: 2rem;
-}
-
-.section {
-  /*Aqui estamos configurando as seções, criando espaçamentos superiro e inferior de 80 pixels e laterais de zero*/
-  padding: 5rem 0;
-}
-
-.section title {
-  margin-bottom: 1.86rem;
-}
-
-.section header {
-  margin-bottom: 4rem;
-}
 main {
   /*Aqui, configurando o corpo da pagina, a função calc é necessário caso queiramos fazer opreações com a variavel estabelecida, nesse caso, somamos 2 rem (equivale a 32 pixels) para que o header ficasse mais distante do resto do body*/
   margin-top: calc(var(--header-height) + 2rem);
@@ -169,7 +171,6 @@ nav {
   height: var(--header-height);
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 /*Num primeiro momento estamos deixando o menu invisivel, e só se torna visivel ao clicar nele (o que foi trazdio pelo nav.show (tudo junto). Neste segundo, configuramos o quadro do menu que sera mostrado em toda tela. A medida vh e vw em, largura e altura, significa viewport height e viewport width, no caos toda a pagina, a largura do dispositivo. 100 significa que irá cobrir 100%*/
@@ -301,7 +302,7 @@ nav.show div.icon-close {
   text-align: center;
 }
 
-#home. text h1 {
+#home .text h1 {
   margin-bottom: 1rem;
 }
 
@@ -352,7 +353,7 @@ nav.show div.icon-close {
   text-align: center;
 }
 
-#about. text h2 {
+#about .text h2 {
   margin-bottom: 1rem;
   text-align: left;
 }
@@ -456,6 +457,9 @@ nav.show div.icon-close {
   padding: 4rem 1rem;
 }
 
+.swiper-container {
+  height: 200px;
+}
 /*=================================Contact=============================*/
 
 #contact .grid {
@@ -484,3 +488,70 @@ nav.show div.icon-close {
 #contact {
   background-color: rgba(0, 0, 0, 0.08);
 }
+
+/*=================================Footer=============================*/
+
+footer {
+  background: var(--base-color);
+}
+/*Alinhando logo*/
+footer .logo {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+/*Dando cor diferente a parte do logo que esta no <span>*/
+footer .logo span {
+  color: white;
+}
+/*Aqui estamos configurando o conteúdo e posição da box p*/
+footer .brand p {
+  color: var(--text-color-light);
+  margin-bottom: 0.75rem;
+}
+/*Aqui estamos configurando o texto do i*/
+footer i {
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+}
+
+/*Aqui estamos colocando os icones em colunas, estavam em linhas*/
+footer .social a {
+  margin-right: 2rem;
+  /*Criando a transição que recebrá o movimento do comando CSS abaixo. o display inline é o padrão, e ele não deixa as coisas mudarem de posição, por isso deve usar o block para adicionar propriedades de movimento*/
+  transition: 0.3s;
+  display: inline-block;
+}
+
+footer .social a:hover {
+  /*criando o movimento no eixo y*/
+  transform: translateY(-15px);
+}
+
+/*Back to top*/
+
+.back-to-top {
+  background: var(--base-color);
+  color: var(--text-color-light);
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.8rem;
+  clip-path: circle();
+  font-size: 1.5rem;
+  /*Escondendo o icone, vai mostrar usando javascript*/
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.back-to-top.show {
+  /*java script irá chamar este comando para mostrar o icone*/
+  visibility: visible;
+  opacity: 1;
+}
+
+/*=======================RESPONSIVO==============================*/
+
+/*Regras que irão se relacionar com o tipo de dispositivo utilizado*/
+
+/*large devices: 992 > */

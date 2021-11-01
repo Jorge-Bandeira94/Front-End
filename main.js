@@ -40,6 +40,16 @@ const swiper = new Swiper('.swiper-container', {
   pagination: {
     el: '.swiper-pagination'
   },
-  mousewheel: true,
+  mouseWheel: true,
   keyboard: true
+})
+
+/*botão de voltar para o topo*/
+const backToTopButton = document.querySelector('.back-to-top')
+window.addEventListener('scroll', function () {
+  if (window.scrollY >= 460) {
+    backToTopButton.classList.add('show')
+  } else {
+    backToTopButton.classList.remove('show')
+  }
 })
