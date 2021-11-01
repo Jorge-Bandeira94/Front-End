@@ -171,6 +171,7 @@ nav {
   height: var(--header-height);
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 /*Num primeiro momento estamos deixando o menu invisivel, e só se torna visivel ao clicar nele (o que foi trazdio pelo nav.show (tudo junto). Neste segundo, configuramos o quadro do menu que sera mostrado em toda tela. A medida vh e vw em, largura e altura, significa viewport height e viewport width, no caos toda a pagina, a largura do dispositivo. 100 significa que irá cobrir 100%*/
@@ -404,6 +405,10 @@ nav.show div.icon-close {
   margin-right: 0;
 }
 
+#testimonials .swiper-container {
+  overflow: hidden;
+}
+
 #testimonials header {
   margin-bottom: 0;
   margin-left: 1.5rem;
@@ -458,7 +463,7 @@ nav.show div.icon-close {
 }
 
 .swiper-container {
-  height: 200px;
+  height: 300px;
 }
 /*=================================Contact=============================*/
 
