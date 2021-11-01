@@ -33,6 +33,11 @@ img {
   --text-color: hsl(0 0% 46%);
   --text-color-light: hsl(0 0% 98%);
   --body-color: hsl(0 0% 97%);
+
+  --title-font-size: 1.875 rem;
+  --subtitle-font-size: 1rem;
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
 }
 
 /* =============================== BASE ==============================*/
@@ -44,7 +49,7 @@ html {
 }
 
 body {
-  font: 400 1rem 'DM Sans';
+  font: 400 1rem var(--body-font);
   color: var(--text-color);
   background: var(--body-color);
   -webkit-font-smoothing: antialiased;
@@ -53,14 +58,14 @@ body {
 }
 
 h2 {
-  font: 700 1.5rem 'Poppins';
+  font: 700 1.5rem var(--body-font);
   color: var(--title-color);
   -webkit-font-smoothing: antialiased;
   margin-bottom: 1rem;
 }
 
 .title {
-  font: 700 1.875rem 'Poppins';
+  font: 700 1.875rem var(--title-font);
   color: var(--title-color);
   -webkit-font-smoothing: antialiased;
 }
@@ -74,7 +79,7 @@ h2 {
   align-items: center;
   padding: 0 2rem;
   border-radius: 0.25rem;
-  font: 500 1rem 'DM Sans';
+  font: 500 1rem var(--body-font);
   transition: background 0.7s;
 }
 
@@ -120,11 +125,15 @@ h2 {
 
 .section {
   /*Aqui estamos configurando as seções, criando espaçamentos superiro e inferior de 80 pixels e laterais de zero*/
-  padding: 5rem 0;
+  padding: calc(5rem + var(--header-height)) 0;
 }
 
 .section title {
   margin-bottom: 1.86rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
 }
 
 .section header {
@@ -150,18 +159,13 @@ h2 {
 
 .logo {
   /*Setando o tamanho do titulo do cabeçalho e customizando*/
-  font: 700 1.31rem 'Poppins';
+  font: 700 1.31rem var(--title-font);
   color: var(--title-color);
 }
 
 .logo span {
   /*Aqui estamos indo na logo e procurando a tag span para editar apenas ela, essa tag separou a palavra beautysalon*/
   color: var(--base-color);
-}
-
-main {
-  /*Aqui, configurando o corpo da pagina, a função calc é necessário caso queiramos fazer opreações com a variavel estabelecida, nesse caso, somamos 2 rem (equivale a 32 pixels) para que o header ficasse mais distante do resto do body*/
-  margin-top: calc(var(--header-height) + 2rem);
 }
 
 /* ================================= Navegação ==============================*/
@@ -171,7 +175,7 @@ nav {
   height: var(--header-height);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 /*Num primeiro momento estamos deixando o menu invisivel, e só se torna visivel ao clicar nele (o que foi trazdio pelo nav.show (tudo junto). Neste segundo, configuramos o quadro do menu que sera mostrado em toda tela. A medida vh e vw em, largura e altura, significa viewport height e viewport width, no caos toda a pagina, a largura do dispositivo. 100 significa que irá cobrir 100%*/
@@ -462,9 +466,10 @@ nav.show div.icon-close {
   padding: 4rem 1rem;
 }
 
-.swiper-container {
-  height: 300px;
+.swiper-pagination {
+  position: relative;
 }
+
 /*=================================Contact=============================*/
 
 #contact .grid {
@@ -473,6 +478,7 @@ nav.show div.icon-close {
 
 #contact .text p {
   margin-bottom: 2rem;
+  font-size: var(--body-font);
 }
 
 #contact .button i,
@@ -499,6 +505,15 @@ nav.show div.icon-close {
 footer {
   background: var(--base-color);
 }
+
+footer .container {
+  height: 2rem;
+}
+
+footer .grid {
+  margin-bottom: 4rem;
+}
+
 /*Alinhando logo*/
 footer .logo {
   display: inline-block;
@@ -511,6 +526,7 @@ footer .logo span {
 /*Aqui estamos configurando o conteúdo e posição da box p*/
 footer .brand p {
   color: var(--text-color-light);
+  font-size: var(--subtitle-font-size);
   margin-bottom: 0.75rem;
 }
 /*Aqui estamos configurando o texto do i*/
@@ -559,4 +575,136 @@ footer .social a:hover {
 
 /*Regras que irão se relacionar com o tipo de dispositivo utilizado*/
 
-/*large devices: 992 > */
+/*large devices: 992 >. Mudando o tamanho das fontes em telas maiores */
+@media (min-width: 992px) {
+  :root {
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.123rem;
+  }
+}
+
+/*Extra large devices: > 1200; Meida de 992 ja é aplicado aqui, agora vamos adaptar as figuras que aparecme na tela para não parecer uma pagina mobile*/
+@media (min-width: 1200px) {
+  /*Ajustando o tamanho dos containers para telas grandes, ajustando os lados automaticamente para uma tela de maximo 1200px de largura*/
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section {
+    padding: 10rem 0;
+  }
+
+  /*Ajustando os headers da seção dos cartões e dos coemntarios*/
+  .section header,
+  #testimonials header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    height: 3.25rem;
+  }
+  /*Modificando o menu no rodapé para telas maiores, setando sempre visivel, modificando o tamanho de sua caixa (ul), de sua fonte e desligando o icone de menu*/
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav ul li a:hover,
+  nav ul li a.active {
+    color: var(--base-color);
+    font-weight: bold;
+  }
+
+  nav ul li a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: var(--base-color);
+  }
+
+  nav .menu ul li a.title {
+    font: 400 1rem var(--body-font);
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+
+  main {
+    /*Aqui, configurando o corpo da pagina, a função calc é necessário caso queiramos fazer opreações com a variavel estabelecida, nesse caso, somamos 2 rem (equivale a 32 pixels) para que o header ficasse mais distante do resto do body*/
+    margin-top: var(--header-height);
+  }
+  /*Estando em uma caixa grid pode-se usar o comando order que modifica a sequencia de quem aparece*/
+
+  /*modificando o container para por os itens em colunas ao invés de um abaixo do outro*/
+  #home .container {
+    grid-auto-flow: column;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+  #home .image {
+    order: 1;
+  }
+
+  #home .text {
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  /*Ajustando a seção about, modificando seu container para colunas configuradas de forma aos dois conteudos (texto e imagem) ficarm separados. em .text p estamos configurando o texto da seção*/
+  #about .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  #about .text p {
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  #testimonial .container {
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+
+  /*Agora modificando os cards para apareceram lado a lado, gri-templeate-columns da a opção de receber valores de espaçamento, 1fr significa um valor flexivel, sendo que o numero aumenta o tamamnho do cartão*/
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #contact .container {
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  #contact .text {
+    max-width: 25rem;
+  }
+
+  footer.section {
+    padding: 3.75rem 0;
+  }
+
+  footer .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer .logo {
+    font-size: 2.5rem;
+  }
+}

@@ -41,7 +41,14 @@ const swiper = new Swiper('.swiper-container', {
     el: '.swiper-pagination'
   },
   mouseWheel: true,
-  keyboard: true
+  keyboard: true,
+  //setando que após 767 pixels haja uma mudança, no caso, dar pra ver 2 slides na pagina e ajustado pelo set
+  breakpoints: {
+    767: {
+      slidesPerView: 2,
+      setWrapperSize: true
+    }
+  }
 })
 
 /*botão de voltar para o topo*/
@@ -52,4 +59,35 @@ window.addEventListener('scroll', function () {
   } else {
     backToTopButton.classList.remove('show')
   }
+})
+
+// Menu ativo conforme a seção visivel na página
+const sections = document.querySelectorAll('main section[id]')
+
+function activateMenuAtCurrentSection() {
+  //aquie stamos estabelecendo uma constante uqe recebe o deslocamento do eixo Y da pagina somado com (tamanho total da pagina dividida em 8 secções e multiplicado por 4).
+  const checkpoint = window.pageYOffset + (window.innerHeight / 8) * 4
+  //sempre que a seção passar desse resultado (uma linha imaginaria) no menu será destacado qual seção que estamos. Então para cada seção:
+  for (const section of sections) {
+    const sectionTop = section.OffsetTop
+    const sectionHeight = section.offsetHeight
+    const sectionId = section.getAttribute('id')
+
+    const checkpointStart = checkpoint >= sectionTop
+    const checkpointEnd = checkpoint <= sectionTop + sectionHeight
+
+    if (checkpointStart && checkpointEnd) {
+      document
+        .querySelector('nav ul li a[href*=' + sectionId + ']')
+        .classList.add('active')
+    } else {
+      document
+        .querySelector('nav ul li a[href*=' + sectionId + ']')
+        .classList.remove('active')
+    }
+  }
+}
+
+window.addEventListener('scroll', function () {
+  activateMenuAtCurrentSection()
 })
