@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  text-decoration: none;
+}
+
+#div_do_header {
+  border-style: solid;
+  background-color: cadetblue;
+  font-weight: bold;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 5%;
+  color: black;
+  height: 75px;
+}
+
+#menu ul {
+  display: flex;
+  flex-direction: row;
+  margin-right: 10%;
+}
+
+#menu ul li {
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+}
+
+#menu ul button {
+  background-color: blue;
+  font-weight: bold;
+}
+
+#menu ul button:hover {
+  transition: 1s;
+  background-color: cornflowerblue;
+}
+
+#menu ul button a {
+  color: aliceblue;
+}
+
+main section:nth-child(1) {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+main section #div1 {
+  border-style: solid;
+  flex: 25%;
+  height: 85vh;
+}
+
+main section #div2 {
+  border-style: solid;
+  flex: 75%;
+  height: 85vh;
+}
+
+main section:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 1rem;
+  border-style: solid;
+}
+
+main section:nth-child(2) div {
+  padding: 2%;
+}
+
+main section:nth-child(2) div ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+main section:nth-child(2) div ul li {
+  border-style: solid;
+  height: 25vh;
+  width: 25vh;
+}
+
+main section:nth-child(2) div ul li img {
+  width: 25vh;
+  height: 25vh;
+}
