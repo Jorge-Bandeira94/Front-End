@@ -44,6 +44,30 @@
   color: aliceblue;
 }
 
+.modal-wrapper {
+  position: absolute;
+  box-sizing: border-box;
+  bottom: 30%;
+  left: 35%;
+
+  width: 40%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.esc {
+  display: flex;
+  border-style: solid;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  background-color: aquamarine;
+}
+
 main section:nth-child(1) {
   display: flex;
   justify-content: space-around;
@@ -90,4 +114,10 @@ main section:nth-child(2) div ul li {
 main section:nth-child(2) div ul li img {
   width: 25vh;
   height: 25vh;
+}
+
+.invisible {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
 }
