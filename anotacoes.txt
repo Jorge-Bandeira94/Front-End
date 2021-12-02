@@ -1,0 +1,51 @@
+Muitos arquivos nesta pagina são partes de um layout, como o footer, o header e o head, enquanto index e about são páginas, por isso precisamos organizar estes arquivos. Dentro da pasta views podemos criar a pasta pages e a pasta partial (partes)
+
+Ao mover estes arquivos, no nosso arquivo server precisamos atualizar os gets que estão buscando os arquivos na pasta views, precisamos faze-los buscar o index e o about na pasta pages
+
+O EJS permiter que passemos tambem objetos para os includes, exemplo:
+
+Se colocarmos no header este código
+
+<p> Pagina: <%- page %></p>
+
+e no about colocarmos
+
+<%- include('about', {page: 'sobre'}); %>
+
+Isso faz com que a objeto Pagina seja exibido no head da seguinte forma:
+Pagina: sobre (pois ha um link da palavra page)
+
+Isso pode acarretar num erro sempre que o header for chamado em outra pagina e essa não incluir este objeto, para isto, podemos escrever o codigo de uma forma diferente no header:
+
+<p>Pagina: <%= typeof page != 'undefined ? page: 'Home' % ></p>
+
+Desta forma: Se page for diferente de indefinido, nesse caso a page será Home. é um ternario. Quando header não receber o page ele ira msotrar home. Mas quando a pagina passa o objeto, como no caso de about, ele recebera o valor estipulado.
+
+da mesma forma podemos incluir objetos no script do servidor e jogar no html, por exemplo
+
+app.get('/', function (req, res) {
+  res.render('pages/index'),
+  const qualidades [
+    {
+      title:"D",
+      message:"Desenvolver apps de forma fácil"
+    },
+    {
+      title:"E",
+      message:"EMS para renderizar html
+    }
+  ]
+})
+
+
+Então, podemos chamar a variavel qualidades no html e criar uma lista lá come stas qualidades. no index podemos então colcoar dentor do main:
+
+<% qualidades.forEach(function(qualidade){ %>
+  <li>
+    <strong> <%= qualidade.title %> </strong> <%= qualidade.message %>
+  </li>
+<% }) %>
+
+Note que, em cada linha que precisamos escrever um codigo java script, precisamos também usar os <% %> para mostrar que não faz parte do html, sem isso, tudo será mostrado na pagina como elemento html.
+
+Como criamos um loop, serão criados 2 <li>, um para cada qualidade. O <li> pode ficar dentro da função desde a função esteja delimitada pelos <% %> e deixe <li> de fora desta delimitação
